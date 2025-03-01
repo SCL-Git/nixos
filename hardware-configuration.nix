@@ -36,13 +36,14 @@
     };
 
   fileSystems."/var" =
-    { device = "/dev/disk/by_label/NIXOS_VAR";
+    { device = "/dev/disk/by-label/NIXOS_VAR";
       fsType = "ext4";
     };
 
   fileSystems."/var/log" =
     { device = "/dev/disk/by-label/NIXOS_VAR_LOG";
       fsType = "ext4";
+      depends = [ "/var" ];
     };
 
   swapDevices =
